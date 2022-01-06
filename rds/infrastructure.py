@@ -17,6 +17,9 @@ class Rds(Construct):
                 ec2.InstanceSize.MICRO
             ),
             removal_policy=RemovalPolicy.DESTROY,
+            vpc_subnets=ec2.SubnetSelection(
+                subnet_type=ec2.SubnetType.PRIVATE_ISOLATED
+                ),
             deletion_protection=False
         )
 
